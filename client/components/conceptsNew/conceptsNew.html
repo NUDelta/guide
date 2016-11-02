@@ -1,5 +1,37 @@
-<template name="conceptNew">
+<template name="conceptsNew">
+	<div class="alert alert-success" role="alert">All changes have been saved.</div>
+	<div class="alert alert-danger" role="alert">Changes were not saved. Check the logs for more information.</div>
     <form class="new-concept">
-    	<input type="text" name="name">
+    	<h2>New Concept</h2>
+    	<div class="form-group">
+			<label for="name">Name</label>
+			<input type="text" name="name" class="form-control" id="name">
+    	</div>
+    	<button type="submit" class="btn btn-default">Add Concept</button>
+    </form>
+
+    <form class="new-edge">
+    	<h2>New Edge</h2>
+    	<div class="form-group">
+			<label for="source">Source</label>
+			<select class="form-control" id="source" name="source">
+				{{#each concepts}}
+				<option value="{{_id}}">{{name}}</option>
+				{{/each}}
+			</select>
+    	</div>
+    	<div class="form-group">
+			<label for="target">Target</label>
+			<select class="form-control" id="target" name="target">
+				{{#each concepts}}
+				<option value="{{_id}}">{{name}}</option>
+				{{/each}}
+			</select>
+    	</div>
+		<div class="form-group">
+			<label for="weight">Weight</label>
+			<input type="text" name="weight" class="form-control" id="weight">
+		</div>
+		<button type="submit" class="btn btn-default">Add Edge</button>
     </form>
 </template>

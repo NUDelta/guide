@@ -14,7 +14,11 @@ export default function (FlowRouter) {
   });
 
   FlowRouter.route('/concepts/new', {
-    action: () => renderSlim('conceptsNew')
+    action: () => renderSlim('conceptsNew'),
+    subscriptions: function() {
+      this.register('Concepts', Meteor.subscribe('Concepts'));
+      this.register('Edges', Meteor.subscribe('Edges'));
+    }
   });
 
   FlowRouter.notFound = {

@@ -9,4 +9,4 @@ createMainRoutes(FlowRouter);
 createHome(Template);
 createHeader(Template);
 createConcepts(Template);
-// createConceptsNew(Template);
+createConceptsNew(Template);
