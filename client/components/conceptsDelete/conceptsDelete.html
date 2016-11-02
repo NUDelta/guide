@@ -1,0 +1,28 @@
+<template name="conceptsDelete">
+   <ul class="list-group concepts-list">
+   	<h2>Concepts</h2>
+    {{#each concepts}}
+	  <li class="list-group-item">
+	  	{{name}}
+	  	<form class="delete-concept">
+	  		<input type="hidden" name="id" value="{{_id}}">
+	  		<button type="submit" class="btn btn-danger">Delete</button>
+	  	</form>
+	  </li>
+    {{/each}}
+	</ul>
+	
+
+	<ul class="list-group edges-list">
+		<h2>Edges</h2>
+    {{#each edges}}
+	  <li class="list-group-item">
+	  	{{conceptName sourceID}} --> {{conceptName targetID}}
+	  	<form class="delete-edge">
+	  		<input type="hidden" name="id" value="{{_id}}">
+	  		<button type="submit" class="btn btn-danger">Delete</button>
+	  	</form>
+	  </li>
+    {{/each}}
+	</ul>
+</template>

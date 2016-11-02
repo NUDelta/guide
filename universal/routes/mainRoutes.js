@@ -21,6 +21,14 @@ export default function (FlowRouter) {
     }
   });
 
+  FlowRouter.route('/concepts/delete', {
+    action: () => renderSlim('conceptsDelete'),
+    subscriptions: function() {
+      this.register('Concepts', Meteor.subscribe('Concepts'));
+      this.register('Edges', Meteor.subscribe('Edges'));
+    }
+  });
+
   FlowRouter.notFound = {
     action: () => renderSlim('notFound')
   };
