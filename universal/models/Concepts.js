@@ -26,13 +26,10 @@ Concepts.attachSchema(
   })
 );
 
-// Collection2 already does schema checking
-if (Meteor.isServer) {
-  Concepts.allow({
-    insert : () => false,
-    update : () => false,
-    remove : () => false
-  });
-}
+Concepts.allow({
+  insert : () => true,
+  update : () => true,
+  remove : () => true
+});
 
 export default Concepts;

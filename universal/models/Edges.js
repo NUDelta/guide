@@ -31,13 +31,10 @@ Edges.attachSchema(
   })
 );
 
-// Collection2 already does schema checking
-if (Meteor.isServer) {
-  Edges.allow({
-    insert : () => false,
-    update : () => false,
-    remove : () => false
-  });
-}
+Edges.allow({
+  insert : () => true,
+  update : () => true,
+  remove : () => true
+});
 
 export default Edges;
