@@ -6,7 +6,11 @@ export default function (FlowRouter) {
   });
 
   FlowRouter.route('/concepts', {
-    action: () => renderSlim('concepts')
+    action: () => renderSlim('concepts'),
+    subscriptions: function() {
+      this.register('Concepts', Meteor.subscribe('Concepts'));
+      this.register('Edges', Meteor.subscribe('Edges'));
+    }
   });
 
   FlowRouter.route('/concepts/new', {
