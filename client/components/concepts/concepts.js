@@ -3,6 +3,11 @@ export default function (Template) {
   });
 
   Template['concepts'].events({
+    'click .node': (event) => {
+      $('.node.selected').removeClass('selected');
+      let node = $(event.target).hasClass('node') ? $(event.target) : $(event.target).parent();
+      node.addClass('selected');
+    }
   });
 
   Template['concepts'].rendered = () => FlowRouter.subsReady('Edges', buildTree);
@@ -14,7 +19,15 @@ function buildTree() {
   let nodeStructure = buildSubtree(rootID);
 
   let chartConfig = {
-    chart: { container: "#tree" },
+    chart: { 
+      container: "#tree",
+      connectors: {
+        type: 'step'
+      },
+      node: {
+        collapsable: false
+      }
+    },
     nodeStructure
   }
   let treant = new Treant(chartConfig, () => console.log('tree created'));
